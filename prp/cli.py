@@ -149,7 +149,7 @@ def create_bonsai_input(
         for method in methods:
             res: MethodIndex = parse_resfinder_amr_pred(pred_res, method)
             # exclude empty results from output
-            if len(res.result.genes) > 0 and len(res.result.mutations) > 0:
+            if len(res.result.genes) > 0 and len(res.result.variants) > 0:
                 results["element_type_result"].append(res)
 
     # amrfinder

@@ -25,7 +25,7 @@ def is_prediction_result_empty(result: ElementTypeResult) -> bool:
     :return: Retrun True if no resistance was predicted.
     :rtype: bool
     """
-    n_entries = len(result.genes) + len(result.mutations)
+    n_entries = len(result.genes) + len(result.variants)
     return n_entries == 0
 
 

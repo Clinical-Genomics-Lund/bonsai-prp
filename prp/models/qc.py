@@ -40,8 +40,6 @@ class PostAlignQcResult(BaseModel):
     mapped_reads: int
     tot_reads: int
     iqr_median: float
-    dup_pct: float
-    dup_reads: int
 
 
 class GenomeCompleteness(BaseModel):

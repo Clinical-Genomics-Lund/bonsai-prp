@@ -56,7 +56,5 @@ def parse_postalignqc_results(input_file: File) -> QcMethodIndex:
         mapped_reads=int(qc_dict["mapped_reads"]),
         tot_reads=int(qc_dict["tot_reads"]),
         iqr_median=float(qc_dict["iqr_median"]),
-        dup_pct=float(qc_dict["dup_pct"]),
-        dup_reads=int(qc_dict["dup_reads"]),
     )
     return QcMethodIndex(software=QcSoftware.POSTALIGNQC, result=qc_res)

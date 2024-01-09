@@ -268,7 +268,9 @@ def _parse_resfinder_amr_genes(
             coverage=info["coverage"],
         )
         results.append(gene)
-    return results
+    # sort genes
+    genes = sorted(results, key=lambda entry: (entry.gene_symbol, entry.coverage))
+    return genes
 
 
 def _parse_resfinder_amr_variants(
@@ -332,7 +334,9 @@ def _parse_resfinder_amr_variants(
             passed_qc=True,  # resfinder only presents variants passing qc
         )
         results.append(variant)
-    return results
+    # sort variants
+    variants = sorted(results, key=lambda entry: (entry.gene_symbol, entry.position))
+    return variants
 
 
 def parse_resfinder_amr_pred(
@@ -354,7 +358,7 @@ def parse_resfinder_amr_pred(
     res_genes = _parse_resfinder_amr_genes(prediction, categories[resistance_category])
     res_mut = _parse_resfinder_amr_variants(prediction, categories[resistance_category])
     resistance = ElementTypeResult(
-        phenotypes=sr_profile, genes=res_genes, mutations=res_mut
+        phenotypes=sr_profile, genes=res_genes, variants=res_mut
     )
     return MethodIndex(
         type=resistance_category, software=Software.RESFINDER, result=resistance

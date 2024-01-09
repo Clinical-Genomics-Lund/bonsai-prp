@@ -17,9 +17,7 @@
       },
       "mapped_reads": 6078594,
       "tot_reads": 7579030,
-      "iqr_median": 0.19047619047619,
-      "dup_pct": 0.0,
-      "dup_reads": 0
+      "iqr_median": 0.19047619047619
     }
   },
   {

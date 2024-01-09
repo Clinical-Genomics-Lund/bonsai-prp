@@ -57,7 +57,9 @@ def _parse_virulencefinder_vir_results(pred: str) -> ElementTypeResult:
         if not genes == "No hit found":
             for gene in genes.values():
                 vir_genes.append(parse_vir_gene(gene, subtype))
-    return ElementTypeResult(genes=vir_genes, phenotypes={}, mutations=[])
+    # sort genes
+    genes = sorted(vir_genes, key=lambda entry: (entry.gene_symbol, entry.coverage))
+    return ElementTypeResult(genes=genes, phenotypes={}, variants=[])
 
 
 def parse_virulencefinder_vir_pred(path: str) -> ElementTypeResult | None:

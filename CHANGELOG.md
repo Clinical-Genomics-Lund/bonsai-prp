@@ -6,10 +6,13 @@
 
 ### Fixed
 
+ - Reordered variant models in ElementTypeResult
  - Fixed assignment of TbProfiler variant type
 
 ### Changed
 
+ - Renamed mutations to variants
+ - Removed prc_dup and dup from postAlnQc output
  - Added reference, note fields to PhenotypeInfo
  - Mykrobe output parser handles csv format instead of json
  - Split generic ResistanceVariant and ResistanceGene to one specified for individual tools

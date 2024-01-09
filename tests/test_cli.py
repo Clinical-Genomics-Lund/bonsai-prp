@@ -27,35 +27,33 @@ def test_create_output_saureus(
     output_file = f"{sample_id}.json"
     runner = CliRunner()
     with runner.isolated_filesystem():
-        result = runner.invoke(
-            create_bonsai_input,
-            [
-                "-i",
-                sample_id,
-                "--run-metadata",
-                saureus_analysis_meta_path,
-                "--quality",
-                saureus_bwa_path,
-                "--quast",
-                saureus_quast_path,
-                "--amrfinder",
-                saureus_amrfinder_path,
-                "--resfinder",
-                saureus_resfinder_path,
-                "--virulencefinder",
-                saureus_virulencefinder_path,
-                "--process-metadata",
-                saureus_resfinder_meta_path,
-                "--process-metadata",
-                saureus_virulencefinder_meta_path,
-                "--mlst",
-                saureus_mlst_path,
-                "--cgmlst",
-                saureus_chewbbaca_path,
-                "--output",
-                output_file,
-            ],
-        )
+        args = [
+            "-i",
+            sample_id,
+            "--run-metadata",
+            saureus_analysis_meta_path,
+            "--quality",
+            saureus_bwa_path,
+            "--quast",
+            saureus_quast_path,
+            "--amrfinder",
+            saureus_amrfinder_path,
+            "--resfinder",
+            saureus_resfinder_path,
+            "--virulencefinder",
+            saureus_virulencefinder_path,
+            "--process-metadata",
+            saureus_resfinder_meta_path,
+            "--process-metadata",
+            saureus_virulencefinder_meta_path,
+            "--mlst",
+            saureus_mlst_path,
+            "--cgmlst",
+            saureus_chewbbaca_path,
+            "--output",
+            output_file,
+        ]
+        result = runner.invoke(create_bonsai_input, args)
         assert result.exit_code == 0
 
         # test that the correct output was generated
@@ -87,35 +85,33 @@ def test_create_output_ecoli(
     output_file = f"{sample_id}.json"
     runner = CliRunner()
     with runner.isolated_filesystem():
-        result = runner.invoke(
-            create_bonsai_input,
-            [
-                "-i",
-                sample_id,
-                "--run-metadata",
-                ecoli_analysis_meta_path,
-                "--quality",
-                ecoli_bwa_path,
-                "--quast",
-                ecoli_quast_path,
-                "--amrfinder",
-                ecoli_amrfinder_path,
-                "--resfinder",
-                ecoli_resfinder_path,
-                "--virulencefinder",
-                ecoli_virulencefinder_stx_pred_no_stx_path,
-                "--process-metadata",
-                ecoli_resfinder_meta_path,
-                "--process-metadata",
-                ecoli_virulencefinder_meta_path,
-                "--mlst",
-                ecoli_mlst_path,
-                "--cgmlst",
-                ecoli_chewbbaca_path,
-                "--output",
-                output_file,
-            ],
-        )
+        args = [
+            "-i",
+            sample_id,
+            "--run-metadata",
+            ecoli_analysis_meta_path,
+            "--quality",
+            ecoli_bwa_path,
+            "--quast",
+            ecoli_quast_path,
+            "--amrfinder",
+            ecoli_amrfinder_path,
+            "--resfinder",
+            ecoli_resfinder_path,
+            "--virulencefinder",
+            ecoli_virulencefinder_stx_pred_no_stx_path,
+            "--process-metadata",
+            ecoli_resfinder_meta_path,
+            "--process-metadata",
+            ecoli_virulencefinder_meta_path,
+            "--mlst",
+            ecoli_mlst_path,
+            "--cgmlst",
+            ecoli_chewbbaca_path,
+            "--output",
+            output_file,
+        ]
+        result = runner.invoke(create_bonsai_input, args)
         # test successful execution
         assert result.exit_code == 0
 
